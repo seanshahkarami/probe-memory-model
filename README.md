@@ -2,9 +2,9 @@
 
 This is a tool which implements a few of the memory model probes discussed in [Russ Cox's fantastic "Hardware Memory Models" blog post](https://research.swtch.com/hwmm).
 
-Technically, this tool is probing the combination of the hardware _and_ compiler which weakens the conclusion quite a bit. For example, it's not clear if a result is really due to the hardware or a compiler optimization.
+This tool is technically probing the combination of the hardware _and_ compiler which weakens the conclusion quite a bit. For example, it's not clear if a result is really due to the hardware or a compiler optimization.
 
-That being said, it still achieves the goal of illustrating examples that might surprise a programmer and help to refine their idea that multithreaded code simply means "interleaving each threads' code".
+That being said, it still achieves its goal of illustrating examples that might surprise a programmer and help to refine their idea that multithreaded code simply means "interleaving each threads' code".
 
 ## Usage
 

@@ -2,7 +2,9 @@
 
 This is a tool which implements a few of the memory model probes discussed in [Russ Cox's fantastic "Hardware Memory Models" blog post](https://research.swtch.com/hwmm).
 
-Technically, I'm probing the combination of hardware + compiler, but this still illustrates that the behavior of a program isn't as simple as just "interleaving the code" between threads in some permuted order.
+Technically, these are probing the combination of hardware + compiler which weakens the conclusion quite a bit. For example, it's not clear if a result is due to hardware or a compiler optimization.
+
+That being said, this still achieves the goal of illustrating examples that might surprise a programmer and help to refine their idea that multithreaded code simply means "interleaving each threads' code".
 
 ## Usage
 

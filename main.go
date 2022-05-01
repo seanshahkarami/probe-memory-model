@@ -34,7 +34,7 @@ func probeMessagePassing() {
 	}
 }
 
-func probeWriteQueue() {
+func probeBufferedWrites() {
 	R1 := make(chan int, 1)
 	R2 := make(chan int, 1)
 
@@ -118,7 +118,7 @@ func probeN6() {
 	run(f1, f2)
 
 	if <-R1 == 1 && <-R2 == 0 && x == 1 {
-		log.Printf("n6: detected!")
+		log.Printf("n6: yes!")
 	}
 }
 
@@ -199,9 +199,9 @@ r2 = 0
 	})
 
 	rootCmd.AddCommand(&cobra.Command{
-		Use:   "wq",
-		Short: "Probe for write queue.",
-		Long: `This probe runs the following test to determine whether memory write queues:
+		Use:   "bw",
+		Short: "Probe for buffered writes.",
+		Long: `This probe runs the following test to determine whether writes are buffered in a queue:
 		
 Proc 1        Proc 2
  x = 1         y = 1
@@ -213,7 +213,7 @@ r2 = 0
 `,
 		Run: func(cmd *cobra.Command, args []string) {
 			for {
-				probeWriteQueue()
+				probeBufferedWrites()
 			}
 		},
 	})

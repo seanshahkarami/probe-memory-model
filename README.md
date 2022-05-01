@@ -2,7 +2,7 @@
 
 This is a tool which implements a few of the memory model probes discussed in [Russ Cox's "Hardware Memory Models" blog post](https://research.swtch.com/hwmm).
 
-Technically, I'm probing the combination of hardware + compiler, but this still illustrates that the behavior of a program isn't simply "interleaving the code" between threads in some random order.
+Technically, I'm probing the combination of hardware + compiler, but this still illustrates that the behavior of a program isn't as simple as just "interleaving the code" between threads in some permuted order.
 
 ## Probes
 

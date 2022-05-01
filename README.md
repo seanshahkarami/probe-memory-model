@@ -1,6 +1,6 @@
 # Probe Memory Model
 
-This is a tool which implements a few of the memory model probes discussed in [Russ Cox's "Hardware Memory Models" blog post](https://research.swtch.com/hwmm).
+This is a tool which implements a few of the memory model probes discussed in [Russ Cox's fantastic "Hardware Memory Models" blog post](https://research.swtch.com/hwmm).
 
 Technically, I'm probing the combination of hardware + compiler, but this still illustrates that the behavior of a program isn't as simple as just "interleaving the code" between threads in some permuted order.
 

@@ -6,6 +6,8 @@ This tool is technically probing the combination of the hardware _and_ compiler 
 
 That being said, it still achieves its goal of illustrating examples that might surprise a programmer and help to refine their idea that multithreaded code simply means "interleaving each threads' code".
 
+I think a practical takeaway from this is, given that these are _very_ simple, distilled examples, in a large multithreaded program, you really have no idea the kind of subtle behavior which may occur when not properly using synchronization primitives like channels or locks!
+
 ## Usage
 
 Because this is architecture (_and possibly compiler version specific_), you'll want to build and run this on your own.

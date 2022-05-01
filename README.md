@@ -10,6 +10,8 @@ Because this is architecture (_and possibly compiler version specific_), you'll 
 
 ## Probes
 
+_Note: Any "no" result below just means that I have not detected the tested behavior and should not be taken as proof that it cannot happen!_
+
 ### mp - Message passing
 
 Probes whether memory writes are exchanged "at will".
@@ -25,8 +27,8 @@ r2 = 0
 ```
 
 My personal experience has been:
-* Intel MBP: No
-* M1 MBP: Yes!
+* Intel MBP + Go 1.18.1: No
+* M1 MBP + Go 1.18.1: Yes!
 
 ### bw - Buffered writes
 
@@ -43,8 +45,8 @@ r2 = 0
 ```
 
 My personal experience has been:
-* Intel MBP: Yes!
-* M1 MBP: Yes!
+* Intel MBP + Go 1.18.1: Yes!
+* M1 MBP + Go 1.18.1: Yes!
 
 ### iriw - Independent reads of independent writes
 
@@ -63,8 +65,8 @@ r4 = 0
 ```
 
 My personal experience has been:
-* Intel MBP: No
-* M1 MBP: TBD
+* Intel MBP + Go 1.18.1: No
+* M1 MBP + Go 1.18.1: No
 
 ### n6 - x86 violation of TLO+CC memory model (Paul Loewenstein)
 
@@ -83,8 +85,8 @@ r2 = 0
 ```
 
 My personal experience has been:
-* Intel MBP: Yes!
-* M1 MBP: TBD
+* Intel MBP + Go 1.18.1: Yes!
+* M1 MBP + Go 1.18.1: Yes!
 
 ### rb - Read buffering
 
@@ -101,5 +103,5 @@ r2 = 1
 ```
 
 My personal experience has been:
-* Intel MBP: No
-* M1 MBP: TBD
+* Intel MBP + Go 1.18.1: No
+* M1 MBP + Go 1.18.1: No

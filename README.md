@@ -6,7 +6,11 @@ This tool is technically probing the combination of the hardware _and_ compiler 
 
 That being said, it still achieves its goal of illustrating examples that might surprise a programmer and help to refine their idea that multithreaded code simply means "interleaving each threads' code".
 
-A practical takeaway from all this is, in a large multithreaded program you don't know the kind of subtle behavior which can occur when not properly using synchronization primitives like channels or locks... and it may change when run on new hardware! _(It also means programming language maintainers are doing incredible work abstracting these subtle behaviors away from us via synchronization primitives.)_
+I personally find one practical takeaway from all to be:
+
+In a large, multithreaded program you really don't know the kind of subtle behavior which can occur when not properly using synchronization primitives.
+
+It also means that programming language designers are doing _incredible_ work abstracting these subtle behaviors away from us.
 
 ## Usage
 

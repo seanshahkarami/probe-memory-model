@@ -6,7 +6,7 @@ This tool is technically probing the combination of the hardware _and_ compiler 
 
 That being said, it still achieves its goal of illustrating examples that might surprise a programmer and help to refine their idea that multithreaded code simply means "interleaving each threads' code".
 
-I personally find one practical takeaway from all to be:
+I personally find one practical takeaway from all this to be:
 
 In a large, multithreaded program you really don't know the kind of subtle behavior which can occur when not properly using synchronization primitives.
 

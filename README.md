@@ -106,8 +106,6 @@ Since `x = 1`, we know Proc 2 must have finished before Proc 1 since its last in
 
 That implies it already set `y = 1` hence `r2 = y = 1` which contradicts what we observed.
 
-Hence, thus our system cannot follow this simple model.
-
 ### rb - Read buffering
 
 Probes whether reads can be buffered until after another procs writes.

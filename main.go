@@ -5,6 +5,7 @@ import (
 	"log"
 	"math/rand"
 	"os"
+	"sync"
 
 	"github.com/spf13/cobra"
 )
@@ -30,7 +31,7 @@ func probeMessagePassing() {
 	run(f1, f2)
 
 	if <-R1 == 1 && <-R2 == 0 {
-		log.Printf("mp: detected!")
+		log.Printf("message passing detected!")
 	}
 }
 
@@ -55,7 +56,7 @@ func probeBufferedWrites() {
 	run(f1, f2)
 
 	if <-R1 == 0 && <-R2 == 0 {
-		log.Printf("wq: detected!")
+		log.Printf("write buffering detected!")
 	}
 }
 
@@ -118,7 +119,7 @@ func probeN6() {
 	run(f1, f2)
 
 	if <-R1 == 1 && <-R2 == 0 && x == 1 {
-		log.Printf("n6: yes!")
+		log.Printf("n6: detected!")
 	}
 }
 
@@ -143,28 +144,32 @@ func probeReadBuffering() {
 	run(f1, f2)
 
 	if <-R1 == 1 && <-R2 == 1 {
-		log.Printf("rb: detected")
+		log.Printf("read buffering detected!")
 	}
 }
 
 // run ensures that the provided functions are run in a synchronized way.
 func run(fs ...func()) {
-	wait := make(chan int)
-
 	// shuffle the order we run the goroutines
 	perm := rand.Perm(len(fs))
 
+	// setup wait groups to ensure all go routines are started before
+	// running funcs and all funcs finish before checking results.
+	var wgStart, wgDone sync.WaitGroup
+	wgStart.Add(len(fs))
+	wgDone.Add(len(fs))
+
 	// create and wait for all goroutines to start
 	for _, i := range perm {
-		start := make(chan int)
 		go func(f func()) {
-			start <- 1
-			<-wait
+			wgStart.Done()
+			wgStart.Wait()
 			f()
+			wgDone.Done()
 		}(fs[i])
-		<-start
 	}
-	close(wait)
+
+	wgDone.Wait()
 }
 
 func main() {

@@ -96,6 +96,10 @@ My personal experience has been:
 * Intel MBP + Go 1.18.1: Yes!
 * M1 MBP + Go 1.18.1: Yes!
 
+Just to clarify why this test is interesting - we can see that seeing `r1 = 1, r2 = 0, x = 1` provides evidence against an "interleaved instruction model" for the following reason:
+
+Suppose things did obey an "interleaved instruction model". If we see `x = 1` then we know Proc 2 must have finished before Proc 1 since its last instruction is to set `x = 2`. That implies it already set `y = 1` and so, `r2 = y = 1` which contradicts what we observed. Hence, thus our system cannot follow this simple model.
+
 ### rb - Read buffering
 
 Probes whether reads can be buffered until after another procs writes.
